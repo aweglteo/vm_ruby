@@ -1,0 +1,9 @@
+# vmrb original language
+
+push 1
+:label
+add
+dup
+push 100000
+bigger
+if :label
