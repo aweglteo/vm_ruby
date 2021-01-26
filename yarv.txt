@@ -1,0 +1,43 @@
+== disasm: #<ISeq:<main>@sample.rb:1 (1,0)-(8,3)> (catch: FALSE)
+== catch table
+| catch type: break  st: 0023 ed: 0029 sp: 0000 cont: 0029
+| == disasm: #<ISeq:block in <main>@sample.rb:6 (6,10)-(8,3)> (catch: FALSE)
+| == catch table
+| | catch type: redo   st: 0001 ed: 0022 sp: 0000 cont: 0001
+| | catch type: next   st: 0001 ed: 0022 sp: 0000 cont: 0022
+| |------------------------------------------------------------------------
+| local table (size: 1, argc: 1 [opts: 0, rest: -1, post: 0, block: -1, kw: -1@-1, kwrest: -1])
+| [ 1] fuga@0<Arg>
+| 0000 nop                                                              (   6)[Bc]
+| 0001 putself                                                          (   7)[Li]
+| 0002 getlocal                               fuga@0, 0
+| 0005 dup
+| 0006 checktype                              T_STRING
+| 0008 branchif                               15
+| 0010 dup
+| 0011 send                                   <calldata!mid:to_s, argc:0, FCALL|ARGS_SIMPLE>, nil
+| 0014 tostring
+| 0015 putobject                              " world"
+| 0017 concatstrings                          2
+| 0019 send                                   <calldata!mid:puts, argc:1, FCALL|ARGS_SIMPLE>, nil
+| 0022 nop
+| 0023 leave                                                            (   8)[Br]
+|------------------------------------------------------------------------
+local table (size: 1, argc: 0 [opts: 0, rest: -1, post: 0, block: -1, kw: -1@-1, kwrest: -1])
+[ 1] vals@0
+0000 putself                                                          (   3)[Li]
+0001 putstring                              "Hello world"
+0003 send                                   <calldata!mid:puts, argc:1, FCALL|ARGS_SIMPLE>, nil
+0006 pop
+0007 putobject                              1                         (   4)[Li]
+0009 putobject                              true
+0011 putstring                              "hoge"
+0013 putnil
+0014 putobject                              true
+0016 getconstant                            :String
+0018 newarray                               4
+0020 setlocal                               vals@0, 0
+0023 getlocal                               vals@0, 0                 (   6)[Li]
+0026 send                                   <calldata!mid:each, argc:0>, block in <main>
+0029 nop
+0030 leave                                                            (   6)
