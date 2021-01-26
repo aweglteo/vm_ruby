@@ -11,8 +11,8 @@ module Vmrb
     end
 
     def run
-      exit 0 if @program.nil?
-      puts @program
+      exit 0 if @path.nil?
+      @program = File.read(@path)
     end
 
     private
@@ -20,7 +20,7 @@ module Vmrb
     def parse_option
       @parser = OptionParser.new do |o|
         o.on "-t", "--target program", "exec target program" do |arg|
-          @program = arg
+          @path = arg
         end
       end
       @parser.parse(@argv)
